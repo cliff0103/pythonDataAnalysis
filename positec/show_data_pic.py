@@ -25,8 +25,13 @@ ultra_sensor = {
     "11": "左侧中",
     "12": "左侧前"
 }
+<<<<<<< HEAD
 ultra_sensor_list = ["691后右", "691后中", "691后左", "691前左", "691前左中", "691前右中", "691前右",
                      "6B1右侧前", "6B1右侧中", "6B1右侧后", "6B1左侧后", "6B1左侧中", "6B1左侧前"]
+=======
+ultra_sensor_list = ["后右", "后中", "后左", "前左", "前左中", "前右中", "前右",
+                     "右侧前", "右侧中", "右侧后", "左侧后", "左侧中", "左侧前"]
+>>>>>>> 32f8a0f1b3b34bd66b060d382ec71f3e49c711bf
 
 
 # 替换不必要的字符
@@ -88,6 +93,9 @@ def show_pic(data_list):
     for index, new_list in enumerate(data_list):
         plt.figure(index)
         plt.plot(x, new_list)
+<<<<<<< HEAD
         plt.xlabel("Time(50ms)")
         plt.ylabel("Distance(cm)")
+=======
+>>>>>>> 32f8a0f1b3b34bd66b060d382ec71f3e49c711bf
         plt.title(ultra_sensor_list[index] + "超声波", fontproperties=font)

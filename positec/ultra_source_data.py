@@ -4,7 +4,11 @@
 # @Author    :Ray
 from matplotlib import pyplot as plt
 from matplotlib.font_manager import FontProperties
+<<<<<<< HEAD
 from positec.show_data_pic import replace_char, ultra_sensor_list
+=======
+from show_data_pic import replace_char, ultra_sensor_list
+>>>>>>> 32f8a0f1b3b34bd66b060d382ec71f3e49c711bf
 
 # 指定字体路径和大小
 font = FontProperties(fname=r'D:\pycharmProject\pythonProject\font\simsun.ttc', size=14)
@@ -34,6 +38,7 @@ def get_ultra_source_log(data_list, start_sed=0, end_sed=0):
 
     for ultra in source_691:
         # 解析超声数据
+<<<<<<< HEAD
         line_list_691 = []
         for x in replace_char(ultra.split(';')[1]).split(','):
             if x.isdigit():
@@ -42,12 +47,23 @@ def get_ultra_source_log(data_list, start_sed=0, end_sed=0):
                 break
         if end_sed >= sum_691 >= start_sed and len(line_list_691) == 7:
             source_list_691.append(line_list_691)
+=======
+        line_list = []
+        for x in replace_char(ultra.split(';')[1]).split(','):
+            if x.isdigit():
+                line_list.append(int(x))
+            else:
+                break
+        if end_sed > sum_691 > start_sed and len(line_list) == 7:
+            source_list_691.append(line_list)
+>>>>>>> 32f8a0f1b3b34bd66b060d382ec71f3e49c711bf
             sum_sub_691 += 1
             print(sum_sub_691, ultra)
         sum_691 += 1
 
     for ultra in source_6b1:
         # 解析超声数据
+<<<<<<< HEAD
         line_list_6b1 = []
         for x in replace_char(ultra.split(';')[1]).split(','):
             if x.isdigit():
@@ -57,6 +73,17 @@ def get_ultra_source_log(data_list, start_sed=0, end_sed=0):
         # line_list = [int(x) for x in replace_char(ultra.split(';')[1]).split(',')]
         if end_sed >= sum_6b1 >= start_sed and len(line_list_6b1) == 6:
             source_list_6b1.append(line_list_6b1)
+=======
+        line_list = []
+        for x in replace_char(ultra.split(';')[1]).split(','):
+            if x.isdigit():
+                line_list.append(int(x))
+            else:
+                break
+        # line_list = [int(x) for x in replace_char(ultra.split(';')[1]).split(',')]
+        if end_sed > sum_6b1 > start_sed and len(line_list) == 6:
+            source_list_6b1.append(line_list)
+>>>>>>> 32f8a0f1b3b34bd66b060d382ec71f3e49c711bf
             sum_sub_6b1 += 1
             print(sum_sub_6b1, ultra)
         sum_6b1 += 1
@@ -80,8 +107,11 @@ def show_pic_691(data_list):
     for index, new_list in enumerate(data_list):
         plt.figure(index)
         plt.plot(x, new_list)
+<<<<<<< HEAD
         plt.xlabel("Time(50ms)")
         plt.ylabel("Distance(cm)")
+=======
+>>>>>>> 32f8a0f1b3b34bd66b060d382ec71f3e49c711bf
         plt.title(ultra_sensor_list[index] + "超声波", fontproperties=font)
 
 
@@ -90,7 +120,10 @@ def show_pic_6b1(data_list):
     for index, new_list in enumerate(data_list):
         plt.figure(index+7)
         plt.plot(x, new_list)
+<<<<<<< HEAD
         plt.xlabel("Time(50ms)")
         plt.ylabel("Distance(cm)")
+=======
+>>>>>>> 32f8a0f1b3b34bd66b060d382ec71f3e49c711bf
         plt.title(ultra_sensor_list[index+7] + "超声波", fontproperties=font)
 
