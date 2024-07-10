@@ -9,10 +9,6 @@ from positec.ultra_source_data import get_ultra_source_log, show_pic_691, show_p
 # log文件和路径
 mcu_name_list = [r'mcu.log.1', r'mcu.log']
 planner_name_list = [r'planner.log.1', r'planner.log']
-file_path73 = r'E:\log\ulsonic\kr800_2024-7-3_16_9_19'
-file_path74 = r'E:\log\ulsonic\kr800_2024-7-4_16_4_9'
-file_path75 = r'E:\log\ulsonic\kr800_2024-7-5_15_55_46'
-file_path78 = r'E:\log\ulsonic\kr800_2024-7-8_14_37_46'
 
 
 def planner_ultra_data(log_path, start_time, end_time, start_sed=0, end_sed=0):

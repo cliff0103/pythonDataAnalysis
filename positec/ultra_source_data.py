@@ -28,52 +28,34 @@ def get_ultra_source_log(data_list, start_sed=0, end_sed=0):
                 source_6b1.append(data)
         else:
             continue
-
     if end_sed == 0:
-        end_sed = len(source_691)
-
+        end_sed = max(len(source_691), len(source_6b1))
     for ultra in source_691:
-        # 解析超声数据
-        line_list_691 = []
+        # 解析691超声数据
+        line_list_691 = []   # 一组691的数据
         for x in replace_char(ultra.split(';')[1]).split(','):
             if x.isdigit():
                 line_list_691.append(int(x))
             else:
                 break
+        # 获取需要的区间内数值，没有设定区间，默认获取所有
         if end_sed >= sum_691 >= start_sed and len(line_list_691) == 7:
             source_list_691.append(line_list_691)
-        line_list = []
-        for x in replace_char(ultra.split(';')[1]).split(','):
-            if x.isdigit():
-                line_list.append(int(x))
-            else:
-                break
-        if end_sed > sum_691 > start_sed and len(line_list) == 7:
-            source_list_691.append(line_list)
             sum_sub_691 += 1
             print(sum_sub_691, ultra)
         sum_691 += 1
 
     for ultra in source_6b1:
-        # 解析超声数据
+        # 解析超声6b1数据
         line_list_6b1 = []
         for x in replace_char(ultra.split(';')[1]).split(','):
             if x.isdigit():
                 line_list_6b1.append(int(x))
             else:
                 break
-        # line_list = [int(x) for x in replace_char(ultra.split(';')[1]).split(',')]
+        # 获取需要的区间内数值，没有设定区间，默认获取所有
         if end_sed >= sum_6b1 >= start_sed and len(line_list_6b1) == 6:
             source_list_6b1.append(line_list_6b1)
-        line_list = []
-        for x in replace_char(ultra.split(';')[1]).split(','):
-            if x.isdigit():
-                line_list.append(int(x))
-            else:
-                break
-        # line_list = [int(x) for x in replace_char(ultra.split(';')[1]).split(',')]
-        if end_sed > sum_6b1 > start_sed and len(line_list) == 6:
-            source_list_6b1.append(line_list)
             sum_sub_6b1 += 1
             print(sum_sub_6b1, ultra)
         sum_6b1 += 1
